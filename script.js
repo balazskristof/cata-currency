@@ -9,7 +9,7 @@ function convert_pve(badge, heroism, valor, conquest, triumph, frost) {
 
 function convert_pvp(old_honor, bg_mark, wg_mark, stonekeeper_shard, venture_coin, spirit_shard) {
     // Everything converts to honor until 4000 cap, rest converts to gold per excess point
-    let new_honor = Math.floor(old_honor * 0.024 + bg_mark * 2.4 + wg_mark * 2.4 + stonekeeper_shard * 2.4 + venture_coin * 2.4 + spirit_shard * 2.4);
+    let new_honor = Math.floor(old_honor * 0.024 + bg_mark * 2.976 + wg_mark * 19.08 + stonekeeper_shard * 1.6 + venture_coin * 3 + spirit_shard * 1);
 
     return {
         honor: Math.min(new_honor, 4000),
