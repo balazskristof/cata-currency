@@ -1,15 +1,9 @@
 function convert_pve(badge, heroism, valor, conquest, triumph, frost) {
-    // TBC, Northrend, Naxxramas, Ulduar emblems convert to gold
-    let money = badge * 18330 + heroism * 55000 + valor * 55000 + conquest * 55000;
-
-    // ToC, ICC emblems convert to Justice until 4000 cap
-    let justice = Math.min(Math.floor((triumph + frost) * 11.58), 4000);
-    // Rest converts to gold (not sure whether this is per unconverted emblem or excess point)
-    money += Math.max((triumph + frost) - 345, 0) * 4700;
-
     return {
-        justice: justice,
-        money: money
+        // ToC, ICC emblems convert to Justice until 4000 cap
+        justice: Math.min((triumph + frost) * 11.58, 4000),
+        // Rest converts to gold per excess point along with TBC, Northrend, Naxxramas, Ulduar emblems convert to gold
+        money: Math.max(triumph + frost - 346, 0) * 11.58 * 4700 + badge * 18330 + heroism * 55000 + valor * 55000 + conquest * 55000
     }
 }
 
